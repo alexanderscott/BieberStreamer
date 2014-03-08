@@ -1,9 +1,9 @@
 # BieberStreamer
-A live stream dedicated to the wiley Canadian.  See what all the fooss is aboot.
+A live stream dedicated to the wiley Canadian.  [See what all the fooss is aboot.](http://bieberstreamer.ehrns.com)
 
 
 # About
-Built as an exercise in Rails4 websockets, threading, Twitter streaming, and Redis Pub/Sub.  What better practice than by using the heavy traffic of #bieber? 
+This project was an exercise in Rails 4 Live Streaming, SSEs, multi-threading, Twitter streaming API, and Redis Pub/Sub.  What better practice than by using the heavy traffic of #bieber? 
 
 A Twitter Streaming API worker runs in a separate thread inside the Rack middleware and publishes serialized tweets via Redis.  Any client may make a connection using the EventSource class to an endpoint on the app server.A simple messaging broker handles the pub-sub messaging between the two.  
 
