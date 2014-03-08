@@ -11,8 +11,8 @@ A Twitter Streaming API worker runs in a separate thread inside the Rack middlew
 # Install
 First update the environment.yml with your app info. Then run:
   
-  $ bundle install
-  $ rails s -p 3000
+    $ bundle install
+    $ RACK_ENV=development rackup config.ru -p 3000
 
 Visit http://localhost:3000 in your browser and admire that live, pop-sensational feed.
 
