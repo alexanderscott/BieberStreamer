@@ -1,0 +1,6 @@
+require 'redis'
+require 'twitter'
+require 'twitter_streaming/errors'
+require 'twitter_streaming/socket_client'
+require 'twitter_streaming/stream_worker'
+require 'twitter_streaming/stream_broker'
