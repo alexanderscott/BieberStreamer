@@ -4,14 +4,14 @@ class SocketsController < ApplicationController
   def stream
     response.headers['Content-Type'] = 'text/event-stream'
     redis_sub = Redis.new
-    redis_sub.subscribe("streams:trend:bieber") do |on|
+    redis_sub.subscribe("streams:trend:#{$trend}") do |on|
       on.message do |channel, tweet_json|
         ##puts "Received message from #{channel.to_s} :: #{tweet_json}"
         response.stream.write(sse(tweet_json, {event: 'tweet'}))
       end
     end
   rescue IOError
-  # Client Disconnected
+    # Client Disconnected
   ensure
     response.stream.close
   end

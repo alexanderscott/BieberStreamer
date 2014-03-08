@@ -29,7 +29,7 @@ module BieberStreamer
       end if File.exists?(env_file)
     end
 
-    $allowed_trend = ENV['ALLOWED_TREND']
+    $trend = ENV['ALLOWED_TREND']
 
   end
 end

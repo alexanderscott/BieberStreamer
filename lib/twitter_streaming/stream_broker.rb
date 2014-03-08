@@ -5,7 +5,6 @@ require 'json'
 
 module TwitterStreaming
   class StreamBroker  
-    #class << self
     def initialize( redis_config = {} )
       redis_config ||= { host: ENV['REDIS_HOST'], port: ENV['REDIS_PORT'] }
 
@@ -33,13 +32,7 @@ module TwitterStreaming
       @redis.psubscribe("streams:new:") do |on|
         on.message do |channel, msg|
           stream_type = channel.split(':')[2]
-
-          if stream_type == 'trend'
-            stream_val = channel.split(':')[3]
-          else
-            stream_val = msg
-          end
-
+          stream_val = channel.split(':')[3]
           emit(stream_type, stream_val, sanitize(msg))
         end
       end
@@ -62,6 +55,5 @@ module TwitterStreaming
         JSON.generate(json)
       end
 
-    #end
   end
 end
