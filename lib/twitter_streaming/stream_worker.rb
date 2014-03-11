@@ -4,7 +4,7 @@ require 'twitter_streaming/stream_broker'
 module TwitterStreaming
   module StreamWorker
 
-    class <<
+    class << self
 
       def initialize (config = {})
         puts "StreamWorker initialized"
