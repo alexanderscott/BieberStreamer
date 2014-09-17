@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+#ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
@@ -45,3 +45,4 @@ gem "font-awesome-rails"
 gem 'redis'
 gem 'momentjs-rails'
 gem 'underscore-rails'
+gem 'figaro'

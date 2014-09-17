@@ -6,7 +6,7 @@ require './lib/twitter_streaming'
 require ::File.expand_path('../config/environment',  __FILE__)
 
 env_file = File.join('./config', 'environment.yml')
-YAML.load(File.open(env_file))['development'].each do |key, value|
+YAML.load(File.open(env_file))['production'].each do |key, value|
   ENV[key.to_s] = value
 end if File.exists?(env_file)
 

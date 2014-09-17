@@ -33,8 +33,6 @@ BieberStreamer::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-
-  # Allow for multiple requests / threads at the same time
   config.preload_frameworks = true
-  config.allow_concurrency  = true
+  config.allow_concurrency = true
 end

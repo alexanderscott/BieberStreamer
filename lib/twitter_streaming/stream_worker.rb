@@ -1,17 +1,19 @@
 require 'twitter'
-require 'twitter_streaming/stream_broker'
+#require 'twitter_streaming/errors'
+#require 'twitter_streaming/stream_broker'
 
 module TwitterStreaming
   module StreamWorker
 
-    class << self
+    class <<
+      include TwitterStreaming::Errors
 
       def initialize (config = {})
         puts "StreamWorker initialized"
       end
 
       def new(env)
-        puts "StreamWorker new called with trend: #{$trend}"
+        puts "StreamWorker new called with allowed trend: #{$allowed_trend}"
         begin 
           @broker = StreamBroker.new
 
@@ -26,7 +28,7 @@ module TwitterStreaming
           raise "Error connecting to twitter stream"
         end
 
-        @tw_stream_client.filter(:track => $trend) do |tw_object|
+        @tw_stream_client.filter(:track => $allowed_trend) do |tw_object|
 
           # Check if stream return is a tweet (could be direct message, follow request, etc)
           if tw_object.is_a?(Twitter::Tweet)
@@ -42,7 +44,7 @@ module TwitterStreaming
             }
             
             #puts "Received tweet #{tw_object.text}"
-            @broker.publish_to_trend_stream( $trend, tweet )
+            @broker.publish_to_trend_stream( $allowed_trend, tweet )
           end
         end
       end

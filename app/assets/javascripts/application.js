@@ -29,6 +29,7 @@ jQuery(document).ready(function() {
     var counter = 0;
     var source = new EventSource('/socket'), message;
     source.addEventListener('tweet', function (e) {
+        console.log(e);
       var tweet = JSON.parse(e.data);
 
       tweet.user_image = tweet.user_image.scheme + '://' + tweet.user_image.host + tweet.user_image.path;
