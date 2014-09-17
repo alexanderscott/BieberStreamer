@@ -99,6 +99,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -203,6 +204,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   momentjs-rails
+  pg
   pry (= 0.9.10)
   pry-rails
   puma
