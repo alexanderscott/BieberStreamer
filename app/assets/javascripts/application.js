@@ -34,7 +34,8 @@ jQuery(document).ready(function() {
       tweet.user_image = tweet.user_image.scheme + '://' + tweet.user_image.host + tweet.user_image.path;
       tweet.timeago = moment(tweet.created_at).fromNow()
 
-      $("#tweet-list").prepend("<li>" + _.template(tweetTplStr, { tweet : tweet }) + "</li>");
+      var compiled = _.template(tweetTplStr);
+      $("#tweet-list").prepend("<li>" + compiled({ tweet: tweet }) + "</li>");
 
       if(counter > MAX_TWEETS_DISPLAYED) $("#tweet-list li:last-child").remove()  
       else counter++;
@@ -42,3 +43,4 @@ jQuery(document).ready(function() {
     });
   });
 });
+
