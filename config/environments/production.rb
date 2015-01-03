@@ -78,9 +78,7 @@ BieberStreamer::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-
-
-
+  # Allow for multiple requests / threads at the same time
   config.preload_frameworks = true
-  config.allow_concurrency = true
+  config.allow_concurrency  = true
 end
